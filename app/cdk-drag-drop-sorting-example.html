@@ -1,0 +1,25 @@
+
+<form [formGroup]="myForm">
+  <input formControlName="title" />
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let item of myForm.get('items').controls" cdkDrag>
+    <span cdkDragHandle>drag</span>
+    <div [formGroup]="item">
+    <input type="text" formControlName="name">
+    <select formControlName="note">
+      <option>foo</option>
+      <option>bar</option>
+      <option>baz</option>
+      <option>quux</option>
+      </select>
+    </div>
+      </div>
+</div>
+
+
+{{ myForm.value | json}}
+</form>
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
